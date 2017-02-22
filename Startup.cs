@@ -37,18 +37,12 @@ namespace aka.terribledev.io
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseRouter(a=>{
-                a.MapGet("docker101", handler: async b=>{
-                    b.Response.Redirect("https://github.com/TerribleDev/intro-to-docker/", true);
-                });
-                a.MapGet("dockerfortran", handler: async b=>{
-                    b.Response.Redirect("https://github.com/TerribleDev/Fortran-docker-mvc", true);
-                });
-                a.MapGet("blog", handler: async b=>{
-                    b.Response.Redirect("https://blog.terribledev.io/", true);
-                });
-                a.MapGet("github", handler: async b=>{
-                    b.Response.Redirect("https://github.com/TerribleDev/", true);
-                });
+                foreach(var route in Routes.RoutesDictionary)
+                {
+                    a.MapGet(route.Key, handler: async b=>{
+                        b.Response.Redirect(route.Value, true);
+                    });
+                }
             });
         }
     }
