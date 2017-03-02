@@ -39,6 +39,9 @@ namespace aka.terribledev.io
             app.UseRouter(a=>{
                 foreach(var route in Routes.RoutesDictionary)
                 {
+                    a.MapVerb("HEAD", "", async b =>{ 
+                        b.Response.StatusCode = 200;
+                    });
                     a.MapGet(route.Key, handler: async b=>{
                         b.Response.Redirect(route.Value, true);
                     });
