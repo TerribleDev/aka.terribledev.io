@@ -13,6 +13,8 @@ namespace aka.terribledev.io
 {
     public class Startup
     {
+        public static byte[] hello = System.Text.Encoding.UTF8.GetBytes("hello");
+        public static int helloCount = hello.Count();
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -41,6 +43,10 @@ namespace aka.terribledev.io
                 {
                     a.MapVerb("HEAD", "", async b =>{ 
                         b.Response.StatusCode = 200;
+                    });
+                    a.MapVerb("GET", "", async b => { 
+                        b.Response.StatusCode = 200;
+                        await b.Response.Body.WriteAsync(Startup.hello, 0, helloCount);
                     });
                     a.MapGet(route.Key, handler: async b=>{
                         b.Response.Redirect(route.Value, true);
