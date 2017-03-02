@@ -41,6 +41,11 @@ namespace aka.terribledev.io
             app.UseRouter(a=>{
                 foreach(var route in Routes.RoutesDictionary)
                 {
+                    a.MapGet(route.Key, handler: async b=>{
+                        b.Response.Redirect(route.Value, true);
+                    });
+                }
+
                     a.MapVerb("HEAD", "", async b =>{ 
                         b.Response.StatusCode = 200;
                     });
@@ -48,10 +53,6 @@ namespace aka.terribledev.io
                         b.Response.StatusCode = 200;
                         await b.Response.Body.WriteAsync(Startup.hello, 0, helloCount);
                     });
-                    a.MapGet(route.Key, handler: async b=>{
-                        b.Response.Redirect(route.Value, true);
-                    });
-                }
             });
         }
     }
