@@ -38,6 +38,21 @@ namespace aka.terribledev.io
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            app.Use(async (context, next) => {
+                if(context.Request.Host.Host.Equals("aka.terribledev.io", StringComparison.OrdinalIgnoreCase))
+                {
+                    await next?.Invoke();
+                    return;
+                }
+                var result = Routes.CalculateHostRedirect(context.Request.Host.Host);
+                if(string.IsNullOrWhiteSpace(result))
+                {
+                    await next?.Invoke();
+                    return;
+                }
+                context.Response.Redirect(result, true);
+
+            });
             app.UseRouter(a=>{
                 foreach(var route in Routes.RoutesDictionary)
                 {
@@ -54,6 +69,8 @@ namespace aka.terribledev.io
                         await b.Response.Body.WriteAsync(Startup.hello, 0, helloCount);
                     });
             });
+
+
         }
     }
 }
