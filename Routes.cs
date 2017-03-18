@@ -9,7 +9,8 @@ namespace aka.terribledev.io
             ["dockerfortran"] = "https://github.com/TerribleDev/Fortran-docker-mvc",
             ["blog"] = "https://blog.terribledev.io",
             ["github"] = "https://github.com/terribledev",
-            ["git-cheatsheet"] = "https://github.com/TerribleDev/Git-CheatSheet"
+            ["git-cheatsheet"] = "https://github.com/TerribleDev/Git-CheatSheet",
+            ["janus-intro"] = "https://janus-vistaprint.github.io/intro-deck/"
         };
 
         public static string CalculateHostRedirect(string host)
