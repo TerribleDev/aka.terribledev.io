@@ -35,6 +35,10 @@ namespace aka.terribledev.io
             {
                 return "https://about.terribledev.io";
             }
+            if(host.Equals("terribledev.io", System.StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://about.terribledev.io";
+            }
             return string.Empty;
         }
     }
