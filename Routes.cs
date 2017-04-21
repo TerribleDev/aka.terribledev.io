@@ -23,6 +23,14 @@ namespace aka.terribledev.io
             {
                 return "https://bitbucket.org/TerribleDev/";
             }
+            if(host.StartsWith("api", System.StringComparison.OrdinalIgnoreCase))
+            {
+                return "http://api.terribledev.io/";
+            }
+            if(host.StartsWith("resume", System.StringComparison.OrdinalIgnoreCase))
+            {
+                return "http://resume.terribledev.io/";
+            }
             if(host.StartsWith("soupinsummer.co", System.StringComparison.OrdinalIgnoreCase))
             {
                 return "https://about.terribledev.io";
