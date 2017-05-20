@@ -19,6 +19,7 @@ namespace aka.terribledev.io
                 .Build();
 
             var host = new WebHostBuilder()
+                .UseApplicationInsights()
                 .UseConfiguration(config)
                 .UseKestrel()
                 .UseUrls()
