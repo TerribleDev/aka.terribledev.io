@@ -14,6 +14,7 @@ namespace aka.terribledev.io
     public class Startup
     {
         public static byte[] hello = System.Text.Encoding.UTF8.GetBytes("hello");
+        public static byte[] fourOhFor = System.Text.Encoding.UTF8.GetBytes("404");
         public static int helloCount = hello.Count();
         public Startup(IHostingEnvironment env)
         {
@@ -72,7 +73,10 @@ namespace aka.terribledev.io
                         await b.Response.Body.WriteAsync(Startup.hello, 0, helloCount);
                     });
             });
-
+            app.Use(async (context, next)=>{
+               context.Response.StatusCode = 404;
+               await context.Response.Body.WriteAsync(fourOhFor, 0, fourOhFor.Count());
+            });
 
         }
     }
