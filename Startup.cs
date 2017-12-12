@@ -16,6 +16,8 @@ namespace aka.terribledev.io
         public static byte[] hello = System.Text.Encoding.UTF8.GetBytes("hello");
         public static byte[] fourOhFor = System.Text.Encoding.UTF8.GetBytes("404");
         public static int helloCount = hello.Count();
+        public static byte[] favicon = System.IO.File.ReadAllBytes("favicon.ico");
+        public static int faviconByteCount = favicon.Count();
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -58,6 +60,11 @@ namespace aka.terribledev.io
 
             });
             app.UseRouter(a=>{
+                a.MapGet("favicon.ico", b=>
+                {
+                    b.Response.StatusCode = 200;
+                    return b.Response.Body.WriteAsync(favicon, 0, faviconByteCount);
+                });
                 foreach(var route in Routes.RoutesDictionary)
                 {
                     a.MapGet(route.Key, handler: async b=>{
