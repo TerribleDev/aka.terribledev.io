@@ -12,7 +12,8 @@ namespace aka.terribledev.io
             ["git-cheatsheet"] = "https://github.com/TerribleDev/Git-CheatSheet",
             ["janus-intro"] = "https://janus-vistaprint.github.io/intro-deck/",
             ["jenkins-groovy"] = "https://jenkinsci.github.io/job-dsl-plugin/",
-            ["feedback"] = "https://docs.google.com/forms/d/e/1FAIpQLSetozvuoSVTOb_lTH0CvQhYMzsXGggGQQdEEq041uQpJlOxVg/viewform?usp=sf_link"
+            ["feedback"] = "https://docs.google.com/forms/d/e/1FAIpQLSetozvuoSVTOb_lTH0CvQhYMzsXGggGQQdEEq041uQpJlOxVg/viewform?usp=sf_link",
+            ["winodistro"] = "https://docs.google.com/forms/d/e/1FAIpQLSf7caM9mjS9H1graJ9BnT1sRkUV2cyGF1dJVUCnMV0f2NXu4A/viewform?usp=sf_link"
         };
 
         public static string CalculateHostRedirect(string host)
