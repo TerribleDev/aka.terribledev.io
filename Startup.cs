@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Http;
+using System.Text;
 
 namespace aka.terribledev.io
 {
@@ -64,6 +66,12 @@ namespace aka.terribledev.io
                 {
                     b.Response.StatusCode = 200;
                     return b.Response.Body.WriteAsync(favicon, 0, faviconByteCount);
+                });
+                a.MapGet("links", b=>
+                {
+                    b.Response.StatusCode = 200;
+                    var resultString = String.Join(Environment.NewLine, Routes.RoutesDictionary.Select(c=> $"/{c.Key} -> {c.Value}"));
+                    return b.Response.WriteAsync(resultString);
                 });
                 foreach(var route in Routes.RoutesDictionary)
                 {
