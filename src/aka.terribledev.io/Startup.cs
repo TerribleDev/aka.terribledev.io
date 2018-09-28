@@ -44,23 +44,6 @@ namespace aka.terribledev.io
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.Use(async (context, next) => {
-               
-                if(context.Request.Host.Host.Equals("aka.terribledev.io", StringComparison.OrdinalIgnoreCase))
-                {
-                     //if we're targeting the forwarder, don't bother doing host calculations. Routes only
-                    await next?.Invoke();
-                    return;
-                }
-                var result = Routes.CalculateHostRedirect(context.Request.Host.Host);
-                if(string.IsNullOrWhiteSpace(result))
-                {
-                    await next?.Invoke();
-                    return;
-                }
-                context.Response.Redirect(result, true);
-
-            });
             app.UseRouter(a=>{
                 a.MapGet("favicon.ico", b=>
                 {
