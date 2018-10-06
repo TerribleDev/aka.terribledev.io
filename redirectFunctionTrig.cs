@@ -39,6 +39,9 @@ namespace TerribleDev
             ILogger log,
             string path)
             {
+                req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
+                     NoStore = true
+                };
                 log.LogInformation($"redirect triggered: {DateTime.Now}");
                 var name = path.ToString().TrimEnd('/');
                 if(string.Equals(name, "livecheck")) 
