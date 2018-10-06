@@ -34,12 +34,16 @@ namespace TerribleDev
         public static class redirectFunctionTrig
         {
             [FunctionName("redirectFunctionTrig")]
-            public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{path}")]
+            public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{path}")]
             HttpRequest req, 
             ILogger log,
             string path)
             {
                 var name = path.ToString().TrimEnd('/');
+                if(string.Equals(name, "livecheck")) 
+                {
+                    return new OkObjectResult("Hi! ^_^");
+                }
                 if (!RoutesDictionary.TryGetValue(name, out string result))
                 {
                     return new NotFoundObjectResult("hello");
