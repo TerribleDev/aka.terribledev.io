@@ -39,6 +39,7 @@ namespace TerribleDev
             ILogger log,
             string path)
             {
+                log.LogInformation($"redirect triggered: {DateTime.Now}");
                 var name = path.ToString().TrimEnd('/');
                 if(string.Equals(name, "livecheck")) 
                 {
