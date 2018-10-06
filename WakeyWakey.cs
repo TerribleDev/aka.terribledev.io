@@ -11,7 +11,7 @@ namespace aka.terribledev.io
     {
         static HttpClient client = new HttpClient();
         [FunctionName("WakeyWakey")]
-        public async static Task Run([TimerTrigger("*/5 * * * *")]TimerInfo myTimer, ILogger log)
+        public async static Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             var result = await client.GetAsync("https://aka.terribledev.io");
