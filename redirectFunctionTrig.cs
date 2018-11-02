@@ -40,6 +40,8 @@ namespace TerribleDev
             string path)
             {
                 req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
+                     Private = true,
+                     NoCache = true,
                      NoStore = true
                 };
                 log.LogInformation($"redirect triggered: {DateTime.Now}");

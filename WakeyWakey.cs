@@ -14,10 +14,14 @@ namespace aka.terribledev.io
         public async static Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            var result = await client.GetAsync("https://aka.terribledev.io");
-            if(!result.IsSuccessStatusCode) 
+            using (var result = await client.GetAsync("https://aka.terribledev.io", HttpCompletionOption.ResponseContentRead))
             {
-                log.LogCritical("Error waking up redirect", result);
+                if (!result.IsSuccessStatusCode)
+                {
+                    log.LogCritical("Error waking up redirect", result);
+                }
+                var content = await result.Content.ReadAsStringAsync();
+                log.LogInformation($"Recieved status code ${result.StatusCode} with body ${content}");
             }
         }
     }
