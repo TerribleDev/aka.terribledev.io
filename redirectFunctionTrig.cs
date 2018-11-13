@@ -39,18 +39,23 @@ namespace TerribleDev
             ILogger log,
             string path)
             {
-                req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
-                     Private = true,
-                     NoCache = true,
-                     NoStore = true,
-                     MustRevalidate = true
-                };
+                
                 log.LogInformation($"redirect triggered: {DateTime.Now}");
                 var name = path.ToString().TrimEnd('/');
                 if(string.Equals(name, "livecheck")) 
                 {
+                    req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
+                     Private = true,
+                     NoCache = true,
+                     NoStore = true,
+                     MustRevalidate = true
+                     };
                     return new OkObjectResult("Hi! ^_^");
                 }
+                req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
+                    Public = true,
+                    MaxAge = TimeSpan.FromDays(1)
+                };
                 if (!RoutesDictionary.TryGetValue(name, out string result))
                 {
                     return new NotFoundObjectResult("hello");
