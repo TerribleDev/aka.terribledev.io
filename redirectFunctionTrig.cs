@@ -28,7 +28,9 @@ namespace TerribleDev
             ["feedback"] = "https://docs.google.com/forms/d/e/1FAIpQLSetozvuoSVTOb_lTH0CvQhYMzsXGggGQQdEEq041uQpJlOxVg/viewform?usp=sf_link",
             ["wineodistro"] = "https://docs.google.com/forms/d/e/1FAIpQLSf7caM9mjS9H1graJ9BnT1sRkUV2cyGF1dJVUCnMV0f2NXu4A/viewform?usp=sf_link",
             ["react-samples"] = "https://github.com/terribledev/react-samples",
-            ["react-sample"] = "https://github.com/terribledev/react-samples"
+            ["react-sample"] = "https://github.com/terribledev/react-samples",
+            ["things-to-know"] = "https://github.com/TerribleDev/Things-to-know",
+            ["code101"] = "https://github.com/NashuaCodes/Decks"
         };
 
         public static class redirectFunctionTrig
