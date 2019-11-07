@@ -37,14 +37,14 @@ namespace TerribleDev
         public static class redirectFunctionTrig
         {
             [FunctionName("redirectFunctionTrig")]
-            public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{path}")]
+            public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{*path}")]
             HttpRequest req,
             ILogger log,
             string path)
             {
 
                 log.LogInformation($"redirect triggered: {DateTime.Now}");
-                var name = path.ToString().TrimEnd('/');
+                var name = path?.ToString().TrimEnd('/') ?? string.Empty;
                 if(string.Equals(name, "livecheck"))
                 {
                     req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
