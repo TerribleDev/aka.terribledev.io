@@ -30,21 +30,22 @@ namespace TerribleDev
             ["react-samples"] = "https://github.com/terribledev/react-samples",
             ["react-sample"] = "https://github.com/terribledev/react-samples",
             ["things-to-know"] = "https://github.com/TerribleDev/Things-to-know",
-            ["code101"] = "https://github.com/NashuaCodes/Decks"
+            ["code101"] = "https://github.com/NashuaCodes/Decks",
+            ["webpack/timereport"] = "https://gist.github.com/TerribleDev/8677821c3e174659250df1f6bba9d7c3"
         };
 
         public static class redirectFunctionTrig
         {
             [FunctionName("redirectFunctionTrig")]
             public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{path}")]
-            HttpRequest req, 
+            HttpRequest req,
             ILogger log,
             string path)
             {
-                
+
                 log.LogInformation($"redirect triggered: {DateTime.Now}");
                 var name = path.ToString().TrimEnd('/');
-                if(string.Equals(name, "livecheck")) 
+                if(string.Equals(name, "livecheck"))
                 {
                     req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue() {
                      Private = true,
