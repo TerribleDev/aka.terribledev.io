@@ -32,7 +32,8 @@ namespace TerribleDev
             ["things-to-know"] = "https://github.com/TerribleDev/Things-to-know",
             ["code101"] = "https://github.com/NashuaCodes/Decks",
             ["webpack/timereport"] = "https://gist.github.com/TerribleDev/8677821c3e174659250df1f6bba9d7c3",
-            ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist"
+            ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist",
+            ["web/lazyimages"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
         };
 
         public static class redirectFunctionTrig
