@@ -32,7 +32,7 @@ namespace TerribleDev
             ["things-to-know"] = "https://github.com/TerribleDev/Things-to-know",
             ["code101"] = "https://github.com/NashuaCodes/Decks",
             ["webpack/timereport"] = "https://gist.github.com/TerribleDev/8677821c3e174659250df1f6bba9d7c3"
-            ["webperf"] = "https://github.com/TerribleDev/WebPerformanceChecklist"
+            ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist"
         };
 
         public static class redirectFunctionTrig
@@ -60,7 +60,7 @@ namespace TerribleDev
                     Public = true,
                     MaxAge = TimeSpan.FromDays(1)
                 };
-                if (!RoutesDictionary.TryGetValue(name, out string result))
+                if (!RoutesDictionary.TryGetValue(name.ToLower(), out string result))
                 {
                     return new NotFoundObjectResult("hello");
                 }
