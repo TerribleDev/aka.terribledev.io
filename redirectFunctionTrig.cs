@@ -34,7 +34,7 @@ namespace TerribleDev
             ["webpack/timereport"] = "https://gist.github.com/TerribleDev/8677821c3e174659250df1f6bba9d7c3",
             ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist",
             ["web/lazyimages"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
-            ["web/jsmobileconf19"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
+            ["web/jsmobileconf19"] = "https://1drv.ms/p/s!ApmZsxwTwlbwgYgp4R33QLD5fpeVxA",
         };
 
         public static class redirectFunctionTrig
