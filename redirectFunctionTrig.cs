@@ -35,6 +35,7 @@ namespace TerribleDev
             ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist",
             ["web/lazyimages"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
             ["web/jsmobileconf19"] = "https://1drv.ms/p/s!ApmZsxwTwlbwgYgp4R33QLD5fpeVxA",
+            ["fun"] = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         };
 
         public static class redirectFunctionTrig
