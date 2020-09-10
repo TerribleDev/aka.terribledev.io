@@ -35,7 +35,7 @@ namespace aka.terribledev.io
         };
         [FunctionName("http")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "{*path}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{*path}")] HttpRequest req,
             ILogger log,
             string path)
         {
