@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,19 +20,17 @@ namespace aka.terribledev.io
             ["blog"] = "https://blog.terribledev.io",
             ["github"] = "https://github.com/terribledev",
             ["git-cheatsheet"] = "https://github.com/TerribleDev/Git-CheatSheet",
-            ["janus-intro"] = "https://janus-vistaprint.github.io/intro-deck/",
-            ["jenkins-groovy"] = "https://jenkinsci.github.io/job-dsl-plugin/",
             ["feedback"] = "https://docs.google.com/forms/d/e/1FAIpQLSetozvuoSVTOb_lTH0CvQhYMzsXGggGQQdEEq041uQpJlOxVg/viewform?usp=sf_link",
             ["wineodistro"] = "https://docs.google.com/forms/d/e/1FAIpQLSf7caM9mjS9H1graJ9BnT1sRkUV2cyGF1dJVUCnMV0f2NXu4A/viewform?usp=sf_link",
             ["react-samples"] = "https://github.com/terribledev/react-samples",
             ["react-sample"] = "https://github.com/terribledev/react-samples",
             ["things-to-know"] = "https://github.com/TerribleDev/Things-to-know",
-            ["code101"] = "https://github.com/NashuaCodes/Decks",
             ["webpack/timereport"] = "https://gist.github.com/TerribleDev/8677821c3e174659250df1f6bba9d7c3",
             ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist",
             ["web/lazyimages"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
             ["web/jsmobileconf19"] = "https://1drv.ms/p/s!ApmZsxwTwlbwgYgp4R33QLD5fpeVxA",
             ["fun"] = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            ["lunch"] = "https://tparnell-lunch.herokuapp.com/",
         };
         [FunctionName("http")]
         public static IActionResult Run(
@@ -50,7 +49,11 @@ namespace aka.terribledev.io
                         NoStore = true,
                         MustRevalidate = true
                     };
-                    return new OkObjectResult("Hi! ^_^");
+                    var stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("Hi! ^_^");
+                    stringBuilder.AppendLine("Paths:");
+                    stringBuilder.AppendJoin('\n', RoutesDictionary.Keys);
+                    return new OkObjectResult(stringBuilder.ToString());
                 }
                 req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
                 {
