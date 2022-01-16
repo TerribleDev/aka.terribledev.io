@@ -49,11 +49,8 @@ namespace aka.terribledev.io
                         NoStore = true,
                         MustRevalidate = true
                     };
-                    var stringBuilder = new StringBuilder();
-                    stringBuilder.AppendLine("Hi! ^_^");
-                    stringBuilder.AppendLine("Paths:");
-                    stringBuilder.AppendJoin('\n', RoutesDictionary.Keys);
-                    return new OkObjectResult(stringBuilder.ToString());
+                    return new OkObjectResult("livecheck");
+
                 }
                 req.HttpContext.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
                 {
@@ -62,6 +59,10 @@ namespace aka.terribledev.io
                 };
                 if (!RoutesDictionary.TryGetValue(name.ToLowerInvariant(), out string result))
                 {
+                    var stringBuilder = new StringBuilder();
+                    stringBuilder.AppendLine("Hi! ^_^");
+                    stringBuilder.AppendLine("Paths:");
+                    stringBuilder.AppendJoin('\n', RoutesDictionary.Keys);
                     return new NotFoundObjectResult("hello");
                 }
                 else
