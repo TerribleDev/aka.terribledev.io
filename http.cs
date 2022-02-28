@@ -63,7 +63,7 @@ namespace aka.terribledev.io
                     stringBuilder.AppendLine("Hi! ^_^");
                     stringBuilder.AppendLine("Paths:");
                     stringBuilder.AppendJoin('\n', RoutesDictionary.Keys);
-                    return new NotFoundObjectResult("hello");
+                    return new NotFoundObjectResult(stringBuilder.ToString());
                 }
                 else
                 {
