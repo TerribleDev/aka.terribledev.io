@@ -29,6 +29,7 @@ namespace aka.terribledev.io
             ["web/perflist"] = "https://github.com/TerribleDev/WebPerformanceChecklist",
             ["web/lazyimages"] = "https://gist.github.com/TerribleDev/4c0e45faf4dca080f5a6eac702995e0d",
             ["web/jsmobileconf19"] = "https://1drv.ms/p/s!ApmZsxwTwlbwgYgp4R33QLD5fpeVxA",
+            ["redbordertool"] = "https://gist.github.com/TerribleDev/51049146e00b36b0d8643f5e09d21ea8",
             ["fun"] = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             ["lunch"] = "https://tparnell-lunch.herokuapp.com/",
         };
